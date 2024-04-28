@@ -1,0 +1,14 @@
+<!-- ••[1]••••••••••••••••••••••••• post-item.component.html •••••••••••••••••••••••••••••• -->
+<div class="container">
+    <div class="row justify-content-md-center list-group-item-primary">
+        <div class="col text-center">
+            {{ productItem.id }}
+        </div>
+        <div class="col text-center">
+            {{ productItem.title }}
+        </div>
+    </div>
+    <div class="row justify-content-md-center list-group-item-secondary">
+        <app-images-grid [itemPhotos]="productItem.photos" ></app-images-grid>
+    </div>
+</div>

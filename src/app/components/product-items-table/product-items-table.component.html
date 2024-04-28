@@ -1,0 +1,26 @@
+<h1 class="title">Products</h1><br>
+<div class="container">
+	<ng-container *ngIf="filteredProductItems$ | async as filteredItems">
+		<div class="row">
+			<div class="col-md-4">
+				<app-filter (filterChange)="filterChangeHandler($event)"></app-filter>
+			</div>
+		</div>
+		<div class="container-fluid" *ngIf="filteredItems.length; else noProductsRef">
+			<ng-container *ngFor="let item of filteredItems; let postIndex = index">
+				<app-product-item [productItem]="item"></app-product-item>
+			</ng-container>
+		</div>
+	</ng-container>
+	<ng-template #noProductsRef>
+		<div class="no-posts">
+			<span>
+				Currently, there are no posts or nothing matches the filter.
+			</span>
+
+			<button class="clear-filter" (click)="clearFilterHandler()">
+				Clear filter
+			</button>
+		</div>
+	</ng-template>
+</div>

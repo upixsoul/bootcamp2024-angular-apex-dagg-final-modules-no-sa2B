@@ -1,0 +1,20 @@
+<!-- ••[1]••••••••••••••••••••••••• filter.component.html •••••••••••••••••••••••••••••• -->
+
+<input
+	#inputRef
+	class="filter"
+	type="search"
+	(input)="inputHandler($event, inputRef.value)"
+	style="margin-bottom: 15px;"
+/>
+
+<!-- NOTE: we can emit the output directly from template, reducing the need of a
+class method -->
+<!-- 
+<input
+	#inputRef
+	class="filter"
+	type="search"
+	(input)="filterChange.emit(inputRef.value)"
+/>
+-->
