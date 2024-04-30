@@ -1,7 +1,7 @@
 /* ••[1]••••••••••••••••••••••••• posts.service.ts •••••••••••••••••••••••••••••• */
 
 import { Injectable } from '@angular/core';
-import { asyncScheduler, concatMap, exhaustMap, from, map, Observable, scheduled, switchMap, timer, toArray } from 'rxjs';
+import { asyncScheduler, concatMap, exhaustMap, from, map, Observable, of, scheduled, switchMap, timer, toArray } from 'rxjs';
 import { Item } from '../entities/item.interface';
 
 @Injectable({
@@ -271,6 +271,7 @@ export class ProductItemsService {
         }
 	];
 
-	public items$: Observable<Array<Item>> = from(this.myItems).pipe(switchMap(async (ob) => ob),toArray())
+	public items$: Observable<Array<Item>> = of(this.myItems)
+	//from(this.myItems).pipe(switchMap(async (ob) => ob),toArray())
 	//timer(10).pipe(map(() => this.myItems)); //scheduled(this.myItems,asyncScheduler);
 }

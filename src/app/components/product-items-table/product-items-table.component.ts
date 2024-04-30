@@ -45,13 +45,12 @@ export class ProductItemsTableComponent {
 				items,
 			}: {
 				filterChange: string;
-				items: Array<Item>|Item;
+				items: Array<Item>;
 			}): Array<Item> => {
 				return (items as Array<Item>).filter(
 					(currentValue: Item): boolean =>
-						currentValue.title.includes(filterChange) ||
-						currentValue.description.includes(filterChange),
-				);
+						currentValue.title.toLocaleLowerCase().includes(filterChange.toLocaleLowerCase()) ||
+						currentValue.description.toLocaleLowerCase().includes(filterChange.toLocaleLowerCase()));
 			},
 		),
 	);

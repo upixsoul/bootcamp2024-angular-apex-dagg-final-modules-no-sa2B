@@ -1,14 +1,27 @@
 <!-- ••[1]••••••••••••••••••••••••• post-item.component.html •••••••••••••••••••••••••••••• -->
-<div class="container">
+<div class="container my-row">
     <div class="row justify-content-md-center list-group-item-primary">
-        <div class="col text-center">
-            {{ productItem.id }}
+        <div class="col text-center fw-bold">
+            {{ productItem.id }} {{ productItem.title }}
         </div>
-        <div class="col text-center">
-            {{ productItem.title }}
+        <div class="col">
+            <div class="row justify-content-md-center list-group-item-primary">
+                <div class="col text-center">
+                    {{ productItem.description }}
+                </div>
+            </div>
         </div>
     </div>
     <div class="row justify-content-md-center list-group-item-secondary">
-        <app-images-grid [itemPhotos]="productItem.photos" ></app-images-grid>
+        <div class="col">
+            <app-images-grid [itemPhotos]="productItem.photos" ></app-images-grid>
+        </div>
+        <div class="col text-center">
+            <span>
+                Prices:
+            </span>
+            <!-- <ul *ngFor="let item of productItem.prices">
+            </ul>-->
+        </div>
     </div>
 </div>

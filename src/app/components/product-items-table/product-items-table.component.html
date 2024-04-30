@@ -13,14 +13,15 @@
 		</div>
 	</ng-container>
 	<ng-template #noProductsRef>
-		<div class="no-posts">
-			<span>
+		<div class="row no-post">
+			<div class="col">
 				Currently, there are no posts or nothing matches the filter.
-			</span>
-
-			<button class="clear-filter" (click)="clearFilterHandler()">
-				Clear filter
-			</button>
+			</div>
+			<div class="col">
+				<button class="clear-filter" (click)="clearFilterHandler()">
+					Clear filter
+				</button>
+			</div>
 		</div>
 	</ng-template>
 </div>
