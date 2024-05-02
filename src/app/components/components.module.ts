@@ -5,13 +5,15 @@ import { ProductItemsTableComponent } from './product-items-table/product-items-
 import { ImagesGridComponent } from './product-item/images-grid/images-grid.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { DisplayItemComponent } from './display-item/display-item.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
 	declarations: [
 		FilterComponent,
 		ProductItemComponent,
 		ProductItemsTableComponent,
-		ImagesGridComponent
+		ImagesGridComponent,
+  PaginationComponent
 	],
 	exports: [
 		FilterComponent,

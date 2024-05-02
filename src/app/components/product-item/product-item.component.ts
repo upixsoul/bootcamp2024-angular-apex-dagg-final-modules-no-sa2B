@@ -1,5 +1,3 @@
-/* ••[1]••••••••••••••••••••••••• post-item.component.ts •••••••••••••••••••••••••••••• */
-
 import { Component, Input } from '@angular/core';
 import { Item } from '../../entities/item.interface';
 
@@ -10,4 +8,5 @@ import { Item } from '../../entities/item.interface';
 })
 export class ProductItemComponent {
 	@Input() public productItem!: Item;
+	@Input() firstPage: boolean = false;
 }

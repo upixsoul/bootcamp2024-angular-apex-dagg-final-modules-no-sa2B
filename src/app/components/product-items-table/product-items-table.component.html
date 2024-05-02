@@ -1,4 +1,6 @@
-<h1 class="title">Products</h1><br>
+<h1 class="title">Products</h1>
+
+<br>
 <div class="container">
 	<ng-container *ngIf="filteredProductItems$ | async as filteredItems">
 		<div class="row">
@@ -7,9 +9,10 @@
 			</div>
 		</div>
 		<div class="container-fluid" *ngIf="filteredItems.length; else noProductsRef">
-			<ng-container *ngFor="let item of filteredItems; let postIndex = index">
-				<app-product-item [productItem]="item"></app-product-item>
-			</ng-container>
+			<app-pagination [productItems]="filteredItems"></app-pagination>
+			<!-- <ng-container *ngFor="let item of filteredItems; let postIndex = index">
+				<app-product-item [productItem]="item" [firstPage]="true"></app-product-item>
+			</ng-container>-->
 		</div>
 	</ng-container>
 	<ng-template #noProductsRef>

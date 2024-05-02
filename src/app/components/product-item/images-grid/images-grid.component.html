@@ -1,11 +1,19 @@
 <div class="container">
     <ng-container *ngIf="photos.length > 0; else nophotos">
+        <ng-container *ngIf="this.firstPage; else twoPhotos">
             <div class="align-items-center justify-content-center text-center">
-                <img [src]="photos[0]" style="width: 35%;">
-                <img [src]="photos[1]" style="width: 35%;">
+                <img [src]="photos[0]" style="width: 55%;">
             </div>
+        </ng-container>
     </ng-container>
 </div>
 <ng-template #nophotos>
     No Photos
+</ng-template>
+
+<ng-template #twoPhotos>
+    <div class="align-items-center justify-content-center text-center">
+        <img [src]="photos[0]" style="width: 35%;">
+        <img [src]="photos[1]" style="width: 35%;">
+    </div>
 </ng-template>

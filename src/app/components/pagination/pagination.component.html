@@ -1,0 +1,21 @@
+<div class="container">
+	<ng-container *ngIf="filteredProductItems() | async as filteredItems">
+		<div class="container-fluid" *ngIf="filteredItems.length; else noProductsRef">
+			<ng-container *ngFor="let item of filteredItems; let postIndex = index">
+				<app-product-item [productItem]="item" [firstPage]="true"></app-product-item>
+			</ng-container>
+		</div>
+	</ng-container>
+    <ng-container *ngFor="let item of pages">
+        <button type="button"
+                class="btn btn-link"
+                [value]="item"
+                (click)="updatePage($event)">
+            {{item}}
+        </button>
+    </ng-container>
+	<ng-template #noProductsRef>
+		<div class="row no-post">
+		</div>
+	</ng-template>
+</div>

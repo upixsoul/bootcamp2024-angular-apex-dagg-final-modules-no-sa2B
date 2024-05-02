@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DisplayItemComponent } from './display-item.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ComponentsModule } from "../components.module";
 
 const routes: Routes = [
   {
@@ -15,11 +16,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [DisplayItemComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ],
-  exports: [RouterModule]
+    declarations: [DisplayItemComponent],
+    exports: [RouterModule],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        ComponentsModule
+    ]
 })
-export class DisplayItemModule { }
+export class DisplayItemModule {
+}

@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ImagesGridComponent {
   @Input("itemPhotos") photos!: Array<string>;
+  @Input() firstPage: boolean = false;
 
   ngOnInit(): void {
   }
