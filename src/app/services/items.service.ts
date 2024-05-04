@@ -20,7 +20,8 @@ export class ProductItemsService {
             "prices": {
 				"20x20": 15.00,
 				"20x30": 18.45
-				},
+			},
+			offerDiscount: 10
         },
         {
             "title": "Space build policy people model treatment town hard use",
@@ -59,7 +60,8 @@ export class ProductItemsService {
             "prices": {
 				"20x20": 15.00,
 				"20x30": 18.45
-				},
+			},
+			offerDiscount: 15
         },
         {
             "title": "Support audience model program three music",
@@ -111,7 +113,8 @@ export class ProductItemsService {
             "prices": {
 				"20x20": 15.00,
 				"20x30": 18.45
-				},
+			},
+			offerDiscount: 20
         },
         {
             "title": "Per nature research",
@@ -163,7 +166,8 @@ export class ProductItemsService {
             "prices": {
 				"20x20": 15.00,
 				"20x30": 18.45
-				},
+			},
+			offerDiscount: 5
         },
         {
             "title": "Produce science chance develop something",
@@ -254,7 +258,8 @@ export class ProductItemsService {
             "prices": {
 				"20x20": 15.00,
 				"20x30": 18.45
-				},
+			},
+			offerDiscount: 15
         },
         {
             "title": "No white success knowledge player community",

@@ -1,5 +1,5 @@
-<div class="container my-row">
-    <div class="row justify-content-md-center list-group-item-primary">
+<div class="container">
+    <div class="row list-group-item-primary">
         <div class="col text-center fw-bold">
             {{ productItem.id }} {{ productItem.title }}
         </div>
@@ -11,13 +11,15 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-md-center list-group-item-secondary">
-        <div class="col">
+</div>
+<div class="container my-bottom-row">
+    <div class="row my-top-row list-group-item-secondary">
+        <div class="col-sm">
             <app-images-grid [itemPhotos]="productItem.photos" [firstPage]="this.firstPage" ></app-images-grid>
         </div>
-        <div class="col">
+        <div class="col-sm">
             <div class="row">
-                <div class="col">
+                <div class="col-sm">
                     <span>
                         Prices:
                     </span>
@@ -27,11 +29,17 @@
                         </li>
                     </ul>
                 </div>
-                <ng-container class="col" *ngIf="firstPage">
-                    <div>
-                        <button><a [href]="['/display/'+productItem.id]" routerLinkActive="router-link-active" >See Details</a></button>
+                <div class="col-sm" *ngIf="productItem.offerDiscount">
+                    <div class="text-center">
+                        <span>Discount!!</span>
+                        <h2 style="color: red;">{{productItem.offerDiscount}}</h2>
                     </div>
-                </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm" *ngIf="firstPage">
+            <div class="text-center">
+                <button style="margin-top: 8%;"><a [href]="['/display/'+productItem.id]" routerLinkActive="router-link-active" >See Details</a></button>
             </div>
         </div>
     </div>

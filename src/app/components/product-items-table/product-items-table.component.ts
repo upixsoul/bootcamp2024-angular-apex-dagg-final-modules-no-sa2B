@@ -21,6 +21,11 @@ export class ProductItemsTableComponent {
 
 	private filterChange$: Observable<string> =
 		this.filterChangeSubject$$.asObservable();
+	
+	private checkSubject$$: Subject<boolean> = new Subject<boolean>();
+
+	private checkChange$: Observable<boolean> =
+		this.checkSubject$$.asObservable();
 
 	private items$: Observable<Array<Item>> = this.itemsService.items$.pipe(
 		catchError((error: Error): Observable<Array<Item>> => {
@@ -59,6 +64,10 @@ export class ProductItemsTableComponent {
 
 	public filterChangeHandler(event: string): void {
 		this.filterChangeSubject$$.next(event);
+	}
+
+	public checkChangeHandler(event: boolean): void {
+		this.checkSubject$$.next(event);
 	}
 
 	public clearFilterHandler(): void {

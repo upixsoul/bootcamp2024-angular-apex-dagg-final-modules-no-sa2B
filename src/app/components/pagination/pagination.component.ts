@@ -25,7 +25,7 @@ export class PaginationComponent {
     //this.currentPage =$event?.target;
     let htmlElement = ($event?.target as HTMLElement);
     let htmlElementValue = htmlElement.getAttribute("value");
-    //console.log(htmlElement.getAttribute("value"));
+    console.log(htmlElement);
     this.currentPage = htmlElementValue? parseInt(htmlElementValue) : this.currentPage;
   }
 
@@ -77,6 +77,7 @@ export class PaginationComponent {
         this.pages = Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
 
         result = (this.productItems as Array<Item>).slice(startIndex,endIndex);
+        //console.log(result);
       }
       return of(result);
   }

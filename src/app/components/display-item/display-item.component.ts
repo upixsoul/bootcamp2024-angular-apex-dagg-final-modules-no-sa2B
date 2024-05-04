@@ -45,6 +45,7 @@ export class DisplayItemComponent {
             let results = items.filter(x => x.id == route["id"]);
             result = results && results.length > 0? results[0] : result;
           }
+		  console.log(result);
         return result;
 			},
 		),

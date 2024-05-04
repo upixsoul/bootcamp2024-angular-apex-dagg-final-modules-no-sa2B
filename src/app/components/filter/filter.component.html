@@ -1,20 +1,19 @@
-<!-- ••[1]••••••••••••••••••••••••• filter.component.html •••••••••••••••••••••••••••••• -->
+<div>
+	<input
+		#inputRef
+		class="filter"
+		type="search"
+		(input)="inputHandler($event, inputRef.value)"
+		style="margin-bottom: 15px;"
+	/>
 
-<input
-	#inputRef
-	class="filter"
-	type="search"
-	(input)="inputHandler($event, inputRef.value)"
+
+	<label style="margin-left: 15px;">Discounts!!</label>
+	<input
+	#checkRef
+	class=""
+	type="checkbox"
 	style="margin-bottom: 15px;"
+	(change)="checkHandler($event,checkRef.checked)"
 />
-
-<!-- NOTE: we can emit the output directly from template, reducing the need of a
-class method -->
-<!-- 
-<input
-	#inputRef
-	class="filter"
-	type="search"
-	(input)="filterChange.emit(inputRef.value)"
-/>
--->
+</div>
