@@ -1,6 +1,6 @@
 <a href="/">
 	<h1 class="title">Back</h1>
 </a>
-<ng-container *ngIf="this.productItems$ |async as productItem">
+<ng-container *ngIf="this.item$ |async as productItem">
     <app-product-item [productItem]="productItem" [firstPage]="false"></app-product-item>
 </ng-container>

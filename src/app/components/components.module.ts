@@ -6,6 +6,8 @@ import { ImagesGridComponent } from './product-item/images-grid/images-grid.comp
 import { ProductItemComponent } from './product-item/product-item.component';
 import { DisplayItemComponent } from './display-item/display-item.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { MyRoundPipe } from './my-round.pipe';
+import { DiscountPipe } from './discount.pipe';
 
 @NgModule({
 	declarations: [
@@ -13,7 +15,9 @@ import { PaginationComponent } from './pagination/pagination.component';
 		ProductItemComponent,
 		ProductItemsTableComponent,
 		ImagesGridComponent,
-  PaginationComponent
+  PaginationComponent,
+  MyRoundPipe,
+  DiscountPipe
 	],
 	exports: [
 		FilterComponent,

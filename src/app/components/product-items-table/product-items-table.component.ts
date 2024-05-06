@@ -42,22 +42,32 @@ export class ProductItemsTableComponent {
 			),
 		),
 		items: this.items$,
-	}).pipe(
-		map(
-			({
-				filterChange,
-				items,
-			}: {
-				filterChange: string;
-				items: Array<Item>;
-			}): Array<Item> => {
-				return (items as Array<Item>).filter(
-					(currentValue: Item): boolean =>
-						currentValue.title.toLocaleLowerCase().includes(filterChange.toLocaleLowerCase()) ||
-						currentValue.description.toLocaleLowerCase().includes(filterChange.toLocaleLowerCase()));
-			},
+		checkChange: this.checkChange$.pipe(
+			startWith(false),
 		),
-	);
+		}).pipe(
+			map(
+				({
+					filterChange,
+					items,
+					checkChange
+				}: {
+					filterChange: string;
+					items: Array<Item>;
+					checkChange: any
+				}): Array<Item> => {
+					let result = items;
+					if(checkChange)
+						{
+							result = result.filter(x => x.offerDiscount);
+						}
+					return (result as Array<Item>).filter(
+						(currentValue: Item): boolean =>
+							currentValue.title.toLocaleLowerCase().includes(filterChange.toLocaleLowerCase()) ||
+							currentValue.description.toLocaleLowerCase().includes(filterChange.toLocaleLowerCase()));
+				},
+			),
+		);
 
 	public constructor(private readonly itemsService: ProductItemsService) {
 	}

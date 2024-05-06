@@ -24,15 +24,25 @@
                         Prices:
                     </span>
                     <ul *ngFor="let item of productItem.prices | keyvalue">
-                        <li>
-                            {{item.key}} {{item.value}} 
+                        <li *ngIf="productItem.offerDiscount; else noDiscounts">
+                            {{item.key}} <br>
+                            After:
+                            <span style="text-decoration-line: line-through">
+                                {{item.value | myRound | currency}}
+                            </span> Now:
+                            <span>
+                                {{item.value | discount : productItem.offerDiscount | myRound | currency}}
+                            </span>
                         </li>
+                        <ng-template #noDiscounts>
+                            {{item.key}} {{item.value | myRound | currency}} 
+                        </ng-template>
                     </ul>
                 </div>
                 <div class="col-sm" *ngIf="productItem.offerDiscount">
-                    <div class="text-center">
+                    <div class="text-center" style="margin-top: 10%;">
                         <span>Discount!!</span>
-                        <h2 style="color: red;">{{productItem.offerDiscount}}</h2>
+                        <h2 style="color: red;">{{productItem.offerDiscount}}%</h2>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,3 @@
-/* ••[1]••••••••••••••••••••••••• filter.component.ts •••••••••••••••••••••••••••••• */
-
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({

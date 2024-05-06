@@ -1,8 +1,9 @@
 /* ••[1]••••••••••••••••••••••••• posts.service.ts •••••••••••••••••••••••••••••• */
 
 import { Injectable } from '@angular/core';
-import { asyncScheduler, concatMap, exhaustMap, from, map, Observable, of, scheduled, switchMap, timer, toArray } from 'rxjs';
+import { asyncScheduler, combineLatest, concatMap, exhaustMap, from, map, Observable, of, scheduled, switchMap, timer, toArray } from 'rxjs';
 import { Item } from '../entities/item.interface';
+import { Params } from '@angular/router';
 
 @Injectable({
 	providedIn: 'root',
@@ -18,8 +19,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/11.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"14x70": 15.12,
+				"2x47": 18.99
 			},
 			offerDiscount: 10
         },
@@ -32,8 +33,8 @@ export class ProductItemsService {
 				//"https://api.slingacademy.com/public/sample-photos/22.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"31x82": 42.46,
+				"70x59": 18.79
 				},
         },
         {
@@ -45,8 +46,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/33.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"20x20": 7.23,
+				"20x30": 33.57
 				},
         },
         {
@@ -58,8 +59,8 @@ export class ProductItemsService {
 				//"https://api.slingacademy.com/public/sample-photos/44.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"40x94": 91.00,
+				"26x79": 55.45
 			},
 			offerDiscount: 15
         },
@@ -72,8 +73,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/55.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"21x54": 29.34,
+				"88x36": 64.68
 				},
         },
         {
@@ -85,8 +86,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/66.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"42x17": 12.89,
+				"89x50": 77.43
 				},
         },
         {
@@ -98,8 +99,8 @@ export class ProductItemsService {
 				//"https://api.slingacademy.com/public/sample-photos/77.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"207x50": 5.87,
+				"73x28": 38.65
 				},
         },
         {
@@ -111,8 +112,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/88.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"64x11": 83.32,
+				"37x30": 22.10
 			},
 			offerDiscount: 20
         },
@@ -125,8 +126,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/99.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"211x50": 49.76,
+				"19x56": 14.54
 				},
         },
         {
@@ -138,8 +139,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/100.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"33x72": 67.21,
+				"80x41": 3.98
 				},
         },
         {
@@ -151,8 +152,8 @@ export class ProductItemsService {
 				//"https://api.slingacademy.com/public/sample-photos/110.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"95x20": 88.00,
+				"112x67": 27.43
 				},
         },
         {
@@ -164,8 +165,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/120.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"21x12": 61.65,
+				"67x24": 9.32
 			},
 			offerDiscount: 5
         },
@@ -178,8 +179,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/130.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"19x50": 72.10,
+				"56x33": 36.45
 				},
         },
         {
@@ -191,8 +192,8 @@ export class ProductItemsService {
 				//"https://api.slingacademy.com/public/sample-photos/129.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"72x8": 99.13,
+				"41x95": 44.76
 				},
         },
         {
@@ -204,8 +205,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/128.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"212x67": 11.43,
+				"20x24": 73.21
 				},
         },
         {
@@ -217,8 +218,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/127.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"19x56": 31.17,
+				"72x33": 66.89
 				},
         },
         {
@@ -230,8 +231,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/126.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"28x41": 17.5,
+				"20x95": 79.11
 				},
         },
         {
@@ -243,8 +244,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/125.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"12x67": 24.56,
+				"19x56": 69.37
 				},
         },
         {
@@ -256,8 +257,8 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/124.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"33x72": 1.91,
+				"08x41": 51.23
 			},
 			offerDiscount: 15
         },
@@ -270,13 +271,37 @@ export class ProductItemsService {
 				"https://api.slingacademy.com/public/sample-photos/122.jpeg",
 			],
             "prices": {
-				"20x20": 15.00,
-				"20x30": 18.45
+				"95x21": 19.78,
+				"12x60": 81.3
 				},
         }
 	];
 
-	public items$: Observable<Array<Item>> = of(this.myItems)
-	//from(this.myItems).pipe(switchMap(async (ob) => ob),toArray())
-	//timer(10).pipe(map(() => this.myItems)); //scheduled(this.myItems,asyncScheduler);
+	public items$: Observable<Array<Item>> = of(this.myItems);
+
+	public itemById(routeParams:Observable<Params>): Observable<Item> {
+		return combineLatest({
+		route: routeParams,
+		items: this.items$,
+	}).pipe(
+		map(
+			({
+				route,
+				items,
+			}: {
+				route: Params;
+				items: Array<Item>;
+			}): Item => {
+				let result :Item = {description : "", id: "", photos: [], prices: {}, title: "" };
+				if(items.length > 0 && route)
+				{
+					let results = items.filter(x => x.id == route["id"]);
+					result = results && results.length > 0? results[0] : result;
+				}
+				console.log(result);
+				return result;
+			},
+		),
+	);
+	}
 }
